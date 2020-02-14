@@ -3,10 +3,14 @@ from cityreader import City, cityreader
 
 def check_city(inp, exp):
     if inp.name != exp.name:
+      print(inp.name, exp.name)
       return False
     if inp.lat != exp.lat:
+      print(inp.lat, exp.lat)
       return False
+
     if inp.lon != exp.lon:
+      print(inp.lon, exp.lon)      
       return False
     return True
 
@@ -14,7 +18,7 @@ class CityreaderTests(unittest.TestCase):
   def setUp(self):
     self.cities = cityreader()
     self.expected = [
-      City("Seattle", 47.6217,-122.3238),
+      City("Seattle", 47.6217, -122.3238),
       City("Richmond", 37.5294,-77.4755),
       City("Virginia Beach", 36.7335,-76.0435),
       City("Washington", 38.9047,-77.0163),
@@ -79,6 +83,7 @@ class CityreaderTests(unittest.TestCase):
   def test_cityreader_correctness(self):
     for i in range(len(self.cities)):
       self.assertTrue(check_city(self.cities[i], self.expected[i]))
+   
 
 
 if __name__ == '__main__':
